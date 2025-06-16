@@ -116,6 +116,8 @@ Finally, let's get the React frontend running. **Open a new, separate terminal w
 
 ## You're All Set!
 
+I would also suggest to use DBeaver when working in the database for clarity but up to you. 
+
 You now have the full development environment running:
 
 * **PostgreSQL Database** on port `5432`
