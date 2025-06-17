@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 import { Button, Container, Spinner } from 'react-bootstrap';
-// We will create these components as templates
 import AdminDashboard from '../components/AdminDashboard';
 import TeacherDashboard from '../components/TeacherDashboard';
-// import StudentDashboard from '../components/StudentDashboard';
+import StudentDashboard from '../components/StudentDashboard';
 
 const Dashboard = () => {
   const { user, fullUserProfile, logout } = useContext(AuthContext);
@@ -34,8 +33,7 @@ const Dashboard = () => {
       case 'teacher':
         return <TeacherDashboard />;
       case 'student':
-        // return <StudentDashboard />;
-        return <p>Student Dashboard (To be built)</p>
+        return <StudentDashboard />;
       default:
         return <p>Unknown role.</p>;
     }
