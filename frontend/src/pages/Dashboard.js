@@ -1,23 +1,30 @@
 import React, { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Spinner } from 'react-bootstrap';
 // We will create these components as templates
 import AdminDashboard from '../components/AdminDashboard';
 import TeacherDashboard from '../components/TeacherDashboard';
 // import StudentDashboard from '../components/StudentDashboard';
 
 const Dashboard = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, fullUserProfile, logout } = useContext(AuthContext);
 
-  if (!user) {
-    return <p>Loading...</p>;
+  if (!user || !fullUserProfile) {
+    // Show a loading spinner while wait for the /users/me API call
+    return (
+      <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+        <Spinner animation="border" />
+      </Container>
+    );
   }
 
-  // A simple function to get the full name
   const getFullName = () => {
-    // This assumes your JWT payload from FastAPI looks like: {"sub": "email@email.com", "role": "admin", ...}
-    // You might need to fetch the full user details from a /users/me endpoint for a better experience
-    return user.sub; // For now, just show the email
+    // If the full profile has loaded, show the first and last name
+    if (fullUserProfile) {
+      return `${fullUserProfile.first_name} ${fullUserProfile.last_name}`;
+    }
+    // Otherwise, fall back to the email from the token
+    return user.sub;
   };
 
   const renderDashboard = () => {
@@ -26,7 +33,6 @@ const Dashboard = () => {
         return <AdminDashboard />;
       case 'teacher':
         return <TeacherDashboard />;
-        return <p>Teacher Dashboard (To be built)</p>
       case 'student':
         // return <StudentDashboard />;
         return <p>Student Dashboard (To be built)</p>
