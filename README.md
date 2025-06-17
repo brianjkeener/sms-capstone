@@ -17,9 +17,9 @@ Before you begin, make sure you have the following installed on your system:
 
 * **Git:** To clone the repository.
 * **Python 3.8+:** For the backend.
-* **Node.js and npm:** For the frontend.
+* **Node.js and npm // React:** For the frontend.
 * **Docker Desktop:** To run the PostgreSQL database. Make sure it is running before you start.
-* **A Code Editor:** We recommend [Visual Studio Code](https://code.visualstudio.com/).
+* **A Code Editor:** I recommend [Visual Studio Code](https://code.visualstudio.com/).
 
 ---
 
@@ -114,7 +114,7 @@ Finally, let's get the React frontend running. **Open a new, separate terminal w
 
 ---
 
-## You're All Set!
+## Done
 
 I would also suggest to use DBeaver when working in the database for clarity but up to you. 
 
