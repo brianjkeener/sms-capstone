@@ -3,7 +3,7 @@ import AuthContext from '../context/AuthContext';
 import { Button, Container } from 'react-bootstrap';
 // We will create these components as templates
 import AdminDashboard from '../components/AdminDashboard';
-// import TeacherDashboard from '../components/TeacherDashboard';
+import TeacherDashboard from '../components/TeacherDashboard';
 // import StudentDashboard from '../components/StudentDashboard';
 
 const Dashboard = () => {
@@ -25,7 +25,7 @@ const Dashboard = () => {
       case 'admin':
         return <AdminDashboard />;
       case 'teacher':
-        // return <TeacherDashboard />;
+        return <TeacherDashboard />;
         return <p>Teacher Dashboard (To be built)</p>
       case 'student':
         // return <StudentDashboard />;

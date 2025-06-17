@@ -12,6 +12,12 @@ class UserCreate(UserBase):
     password: str
     role: str
 
+class UserUpdate(BaseModel):
+    email: Optional[EmailStr] = None
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    role: Optional[str] = None
+
 class UserDisplay(UserBase):
     user_id: int
     role: str
@@ -60,3 +66,21 @@ class ClassDisplay(BaseModel):
     
     class Config:
         orm_mode = True
+
+class ClassBasicDisplay(BaseModel):
+    class_id: int
+    subject_name: str
+    room_number: str
+    
+    class Config:
+        from_attributes = True
+
+class EnrolledStudentDisplay(BaseModel):
+    user_id: int
+    first_name: str
+    last_name: str
+    grade: Optional[float] = None
+    comments: Optional[str] = None
+
+    class Config:
+        from_attributes = True
